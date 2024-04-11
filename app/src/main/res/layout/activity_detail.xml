@@ -38,7 +38,7 @@
         android:id="@+id/tv_detailUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="유저닉네임"
+        android:text="@string/tv_detailUserName"
         android:textSize="15sp"
         android:textStyle="bold"
         android:layout_margin="10dp"
@@ -46,10 +46,10 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
 
     <TextView
-        android:id="@+id/tv_detailLocationm"
+        android:id="@+id/tv_detailLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="동래구 온천제2동"
+        android:text="@string/tv_detailLocation"
         android:textSize="13sp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/cardView2"
@@ -65,23 +65,24 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_mannersTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp"
-        android:text="39.3 ℃"
+        android:text="@string/tv_mannersTemperature"
         android:textColor="#3cb371"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/iv_mannerIcon"
         app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
 
     <TextView
+        android:id="@+id/tv_mannersInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="매너온도"
+        android:text="@string/tv_mannersInfo"
         android:textColor="#999999"
-        android:textSize="10sp"
+        android:textSize="11sp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toTopOf="@+id/horizontalBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="샤넬 탑핸들 가방"
+        android:text="@string/tv_detailPostTitle"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,8 +126,8 @@
         <TextView
             android:id="@+id/tv_detailPostContents"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="샤넬 트랜디 CC 탑핼"
+            android:layout_height="0dp"
+            android:text="@string/tv_detailPostContents"
             android:textSize="15sp"/>
 
     </ScrollView>
@@ -154,7 +155,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="180,000원"
+        android:text="@string/tv_detailPrice"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -165,7 +166,7 @@
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:background="@drawable/btn_radius"
-        android:text="채팅하기"
+        android:text="@string/btn_chat"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_margin="10dp"
