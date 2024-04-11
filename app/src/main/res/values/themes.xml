@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Nbc_market" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- statusBarColor = 앱 상태 색깔 변경 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- statusBarColor = 앱 상대 아이콘 색깔 변경 true = black, false = white -->
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+    <style name="Theme.Nbc_market" parent="Base.Theme.Nbc_market" />
+</resources>
