@@ -28,8 +28,6 @@ class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adap
             binding.tvPostMoney.text = item.postPrice.toString()
             binding.tvPostCommentCount.text = item.postComment.toString()
             binding.tvPostFavoriteCount.text = item.postFavorite.toString()
-
         }
-
     }
 }
