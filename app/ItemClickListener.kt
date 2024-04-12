@@ -1,0 +1,4 @@
+interface ItemClickListener {
+
+    fun onClick()
+}

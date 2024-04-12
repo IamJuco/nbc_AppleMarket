@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nbc_market.databinding.RvItemBinding
 
 class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adapter<PostAdapter.Holder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.Holder {
         val binding = RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
@@ -28,6 +29,7 @@ class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adap
             binding.tvPostMoney.text = item.postPrice.toString()
             binding.tvPostCommentCount.text = item.postComment.toString()
             binding.tvPostFavoriteCount.text = item.postFavorite.toString()
+
         }
     }
 }
