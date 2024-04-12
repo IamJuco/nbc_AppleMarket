@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">nbc_market</string>
+    <string name="app_name">사과마켓</string>
 
     <!-- activity_main -->
     <string name="tv_location">내배캠 동</string>
