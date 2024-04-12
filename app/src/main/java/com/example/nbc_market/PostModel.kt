@@ -6,10 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PostModel (
+    val userName: String,
     val postThumnail: Uri,
     val postTitle: String,
+    val postContents: String,
     val postLocation: String,
     val postPrice: Int,
-    val postComment: Int,
-    val postFavorite: Int
+    val postFavorite: Int,
+    val postComment: Int
 ) : Parcelable
