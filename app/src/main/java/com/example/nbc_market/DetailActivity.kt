@@ -1,8 +1,10 @@
 package com.example.nbc_market
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.nbc_market.databinding.ActivityDetailBinding
 import java.text.NumberFormat
@@ -14,7 +16,13 @@ class DetailActivity : AppCompatActivity() {
         ActivityDetailBinding.inflate(layoutInflater)
     }
 
-    private val postModel: PostModel? = intent.getParcelableExtra("UserData")
+    private val postModel by lazy {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent?.getParcelableExtra("UserData", PostModel::class.java)
+        } else {
+            intent?.getParcelableExtra("UserData")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,21 +42,21 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showDetailActivity() {
-        postModel?.run {
+        postModel?.let {// 그냥 여기서 if문으로 null인지 아닌지 하는게 좋음
             // 화폐 , 처리
             val unitPrice = String.format(
                 Locale.getDefault(),
                 binding.root.context.getString(R.string.tv_postMoney),
-                NumberFormat.getNumberInstance(Locale.getDefault()).format(postPrice)
+                NumberFormat.getNumberInstance(Locale.getDefault()).format(it.postPrice)
             )
 
-            binding.ivDetailImage.setImageURI(postModel.postThumnail)
+            binding.ivDetailImage.setImageURI(it.postThumnail)
             //binding.ivProfile.setImageURI() 프로필 이미지 더미데이터에 추가해야함
-            binding.tvDetailUserName.text = userName
-            binding.tvDetailLocation.text = postLocation
+            binding.tvDetailUserName.text = it.userName
+            binding.tvDetailLocation.text = it.postLocation
             //binding.tvMannersTemperature= 매너온도 더미데이터에 추가해야함
-            binding.tvDetailPostTitle.text = postTitle
-            binding.tvDetailPostContents.text = postContents
+            binding.tvDetailPostTitle.text = it.postTitle
+            binding.tvDetailPostContents.text = it.postContents
             binding.tvDetailPrice.text = unitPrice
         }
     }
