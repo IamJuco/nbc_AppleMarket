@@ -7,7 +7,7 @@
     <!-- rv_item -->
     <string name="tv_postTitle">게시글 제목 게시글 제목 게시글 제목 게시글 제목 게시글 제목</string>
     <string name="tv_postLocation">수원시 영동구 원천동</string>
-    <string name="tv_postMoney">50,000원</string>
+    <string name="tv_postMoney">%s원</string>
     <string name="tv_postCommentCount">16</string>
     <string name="tv_postFavoriteCount">25</string>
 
@@ -18,7 +18,22 @@
     <string name="tv_mannersInfo"><u>매너온도</u></string>
     <string name="tv_detailPostTitle">샤넬 탑핸들 가방</string>
     <string name="tv_detailPostContents">샤넬 트랜디 CC 탑핼</string>
-    <string name="tv_detailPrice">180,000원</string>
+    <string name="tv_detailPrice">%s원</string>
     <string name="btn_chat">채팅하기</string>
+
+    <!-- BackPressedDialog -->
+    <string name="dialog_title">종료</string>
+    <string name="dialog_message">정말 종료하시겠습니까?</string>
+    <string name="dialog_positive">예</string>
+    <string name="dialog_negative">아니요</string>
+
+    <!-- notification -->
+    <string name="notification_content_title">키워드 알림</string>
+    <string name="notification_content_text">설정한 키워드에 대한 알림이 도착했습니다!!</string>
+
+    <!-- MannersInfoDialog -->
+    <string name="manners_info_title">매너 온도란?</string>
+    <string name="manners_info_positive">확인</string>
+    <string name="manners_info_text">매너 온도는 매너 온도이다!</string>
 
 </resources>

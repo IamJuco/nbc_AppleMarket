@@ -3,9 +3,7 @@ package com.example.nbc_market
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.net.Uri
@@ -14,11 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.getSystemService
 import com.example.nbc_market.Util.dummyData
 import com.example.nbc_market.Util.dummyItems
 import com.example.nbc_market.databinding.ActivityMainBinding
@@ -41,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         dummyData()
+
         binding.rvMain.adapter = PostAdapter(dummyItems)
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
@@ -48,20 +45,19 @@ class MainActivity : AppCompatActivity() {
         binding.ivAlarm.setOnClickListener {
             notificationChannel()
         }
-
     }
 
     private fun showBackPressedDialog() {
         val builder = AlertDialog.Builder(this)
         builder
-            .setTitle("종료")
-            .setMessage("정말 종료하시겠습니까?")
+            .setTitle(getString(R.string.dialog_title))
+            .setMessage(getString(R.string.dialog_message))
             .setIcon(R.drawable.chat)
-            .setPositiveButton("아니요") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .setNegativeButton("예") { _, _ ->
+            .setPositiveButton(getString(R.string.dialog_positive)) { _, _ ->
                 finish()
+            }
+            .setNegativeButton(getString(R.string.dialog_negative)) { dialog, _ ->
+                dialog.dismiss()
             }
             .create()
             .show()
@@ -89,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
                 // 채널 설정
-                description = "채널 생성"
+                description = "create Channel"
                 setShowBadge(true)
                 val uri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
                 // 알람 오디오 설정
@@ -113,11 +109,10 @@ class MainActivity : AppCompatActivity() {
         builder.run {
             setSmallIcon(R.drawable.btn_radius)
             setWhen(System.currentTimeMillis())
-            setContentTitle("키워드 알림")
-            setContentText("설정한 키워드에 대한 알림이 도착했습니다!!")
+            setContentTitle(getString(R.string.notification_content_title))
+            setContentText(getString(R.string.notification_content_text))
         }
         manager.notify(1,builder.build())
 
     }
-
 }
