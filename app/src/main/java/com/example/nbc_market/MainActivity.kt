@@ -113,6 +113,5 @@ class MainActivity : AppCompatActivity() {
             setContentText(getString(R.string.notification_content_text))
         }
         manager.notify(1,builder.build())
-
     }
 }

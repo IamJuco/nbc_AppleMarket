@@ -73,5 +73,4 @@ class DetailActivity : AppCompatActivity() {
         }
         builder.show()
     }
-
 }
