@@ -8,7 +8,7 @@ import com.example.nbc_market.databinding.RvItemBinding
 import java.text.NumberFormat
 import java.util.Locale
 
-class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adapter<PostAdapter.Holder>() {
+class PostAdapter(private val items: List<PostModel>) : RecyclerView.Adapter<PostAdapter.Holder>() {
 
     private lateinit var itemClickListener : OnItemClickListener
 
@@ -18,6 +18,10 @@ class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adap
 
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener
+    }
+
+    fun getItem(position: Int): PostModel {
+        return items[position]
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.Holder {

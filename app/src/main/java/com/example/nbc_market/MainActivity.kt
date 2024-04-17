@@ -16,8 +16,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.nbc_market.Util.dummyData
-import com.example.nbc_market.Util.dummyItems
+import com.example.nbc_market.Util.returnDummyData
 import com.example.nbc_market.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val postAdapter = PostAdapter(dummyItems)
+    private lateinit var postAdapter : PostAdapter
 
     private val onBackPressedCallback: OnBackPressedCallback =
         object : OnBackPressedCallback(true) {
@@ -39,9 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        dummyData()
-
-        binding.rvMain.adapter = postAdapter
+        setRecyclerview()
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
@@ -52,11 +49,21 @@ class MainActivity : AppCompatActivity() {
         // postAdapter의 아이템 클릭 이벤트
         postAdapter.setItemClickListener(object: PostAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
+                val item = postAdapter.getItem(position)
                 val intent = Intent(baseContext, DetailActivity::class.java)
-                intent.putExtra("UserData", dummyItems[position])
+                intent.putExtra("UserData", item)
                 startActivity(intent)
             }
         })
+    }
+
+    private fun setRecyclerview(){
+        postAdapter = PostAdapter(fetchDummyData())
+        binding.rvMain.adapter = postAdapter
+    }
+
+    private fun fetchDummyData(): List<PostModel>{
+        return returnDummyData()
     }
 
     private fun showBackPressedDialog() {

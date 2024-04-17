@@ -4,9 +4,12 @@ import android.net.Uri
 import com.example.nbc_market.PostModel
 
 
-val dummyItems = mutableListOf<PostModel>()
 
-fun dummyData() {
+
+fun returnDummyData(): List<PostModel> {
+
+    val dummyItems = mutableListOf<PostModel>()
+
     dummyItems.add(
         PostModel(
             "대현동",
@@ -156,4 +159,5 @@ fun dummyData() {
             6
         )
     )
+    return dummyItems
 }
