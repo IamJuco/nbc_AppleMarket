@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.nbc_market.databinding.ActivityDetailBinding
 import java.text.NumberFormat
@@ -35,14 +34,12 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finishAffinity()
+            finish()
         }
     }
 
     private fun showDetailActivity() {
-        postModel?.let {// 그냥 여기서 if문으로 null인지 아닌지 하는게 좋음
+        postModel?.let {
             // 화폐 , 처리
             val unitPrice = String.format(
                 Locale.getDefault(),

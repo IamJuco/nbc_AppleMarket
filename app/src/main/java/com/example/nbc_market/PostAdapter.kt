@@ -1,7 +1,7 @@
 package com.example.nbc_market
 
-import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nbc_market.databinding.RvItemBinding
@@ -9,6 +9,16 @@ import java.text.NumberFormat
 import java.util.Locale
 
 class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adapter<PostAdapter.Holder>() {
+
+    private lateinit var itemClickListener : OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.Holder {
         val binding = RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,13 +28,16 @@ class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: PostAdapter.Holder, position: Int) {
         holder.bind(items[position])
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    inner class Holder(val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PostModel){
 
             // 화폐 , 처리
@@ -33,20 +46,13 @@ class PostAdapter(private val items: MutableList<PostModel>) : RecyclerView.Adap
                 binding.root.context.getString(R.string.tv_postMoney),
                 NumberFormat.getNumberInstance(Locale.getDefault()).format(item.postPrice)
             )
-
-            binding.ivPostThumnail.setImageURI(item.postThumnail)
-            binding.tvPostTitle.text = item.postTitle
-            binding.tvPostLocation.text = item.postLocation
-            binding.tvPostMoney.text = unitPrice
-            binding.tvPostCommentCount.text = item.postComment.toString()
-            binding.tvPostFavoriteCount.text = item.postFavorite.toString()
-
-            binding.rvItemArea.setOnClickListener {
-                val context = binding.root.context
-
-                val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("UserData", item)
-                context.startActivity(intent)
+            binding.apply {
+                ivPostThumnail.setImageURI(item.postThumnail)
+                tvPostTitle.text = item.postTitle
+                tvPostLocation.text = item.postLocation
+                tvPostMoney.text = unitPrice
+                tvPostCommentCount.text = item.postComment.toString()
+                tvPostFavoriteCount.text = item.postFavorite.toString()
             }
         }
     }

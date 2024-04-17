@@ -7,7 +7,6 @@ import com.example.nbc_market.PostModel
 val dummyItems = mutableListOf<PostModel>()
 
 fun dummyData() {
-    
     dummyItems.add(
         PostModel(
             "대현동",

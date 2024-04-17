@@ -11,6 +11,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    private val postAdapter = PostAdapter(dummyItems)
+
     private val onBackPressedCallback: OnBackPressedCallback =
         object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -38,13 +41,22 @@ class MainActivity : AppCompatActivity() {
 
         dummyData()
 
-        binding.rvMain.adapter = PostAdapter(dummyItems)
+        binding.rvMain.adapter = postAdapter
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         binding.ivAlarm.setOnClickListener {
             notificationChannel()
         }
+
+        // postAdapter의 아이템 클릭 이벤트
+        postAdapter.setItemClickListener(object: PostAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                val intent = Intent(baseContext, DetailActivity::class.java)
+                intent.putExtra("UserData", dummyItems[position])
+                startActivity(intent)
+            }
+        })
     }
 
     private fun showBackPressedDialog() {
