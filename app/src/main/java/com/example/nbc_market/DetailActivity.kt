@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.nbc_market.Util.ImageUtil
 import com.example.nbc_market.databinding.ActivityDetailBinding
 import java.text.NumberFormat
 import java.util.Locale
@@ -50,10 +51,11 @@ class DetailActivity : AppCompatActivity() {
             //binding.ivProfile.setImageURI() 프로필 이미지 더미데이터에 추가해야함
             binding.tvDetailUserName.text = it.userName
             binding.tvDetailLocation.text = it.postLocation
-            //binding.tvMannersTemperature= 매너온도 더미데이터에 추가해야함
+            binding.tvMannersTemperature.text = it.mannersTemperature
             binding.tvDetailPostTitle.text = it.postTitle
             binding.tvDetailPostContents.text = it.postContents
             binding.tvDetailPrice.text = unitPrice
+            binding.ivMannerIcon.setImageURI(ImageUtil.getTemperatureImage(it.mannersTemperature))
         }
     }
 

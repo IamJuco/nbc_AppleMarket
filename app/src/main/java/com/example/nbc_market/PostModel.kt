@@ -13,5 +13,6 @@ data class PostModel (
     val postLocation: String,
     val postPrice: Int,
     val postFavorite: Int,
-    val postComment: Int
+    val postComment: Int,
+    val mannersTemperature: String
 ) : Parcelable

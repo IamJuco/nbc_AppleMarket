@@ -34,6 +34,6 @@
     <!-- MannersInfoDialog -->
     <string name="manners_info_title">매너 온도란?</string>
     <string name="manners_info_positive">확인</string>
-    <string name="manners_info_text">매너 온도는 매너 온도이다!</string>
+    <string name="manners_info_text">매너온도 지수에 따라 매너표정이 변합니다!</string>
 
 </resources>

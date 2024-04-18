@@ -16,7 +16,8 @@ fun returnDummyData(): List<PostModel> {
             "서울 서대문구 창천동",
             1000,
             13,
-            25
+            25,
+            "${17.8} ℃"
         )
     )
 
@@ -29,7 +30,8 @@ fun returnDummyData(): List<PostModel> {
             "인천 계양구 귤현동",
             20000,
             8,
-            28
+            28,
+            "${89.3} ℃"
         )
     )
 
@@ -42,7 +44,8 @@ fun returnDummyData(): List<PostModel> {
             "수성구 범어동",
             10000,
             23,
-            5
+            5,
+            "${55.1} ℃"
         )
     )
 
@@ -55,7 +58,8 @@ fun returnDummyData(): List<PostModel> {
             "해운대구 우제2동",
             10000,
             14,
-            17
+            17,
+            "${15.2} ℃"
         )
     )
 
@@ -68,7 +72,8 @@ fun returnDummyData(): List<PostModel> {
             "연제구 연산제8동",
             150000,
             22,
-            9
+            9,
+            "${97.1} ℃"
         )
     )
 
@@ -81,7 +86,8 @@ fun returnDummyData(): List<PostModel> {
             "연제구 연산제8동",
             50000,
             25,
-            16
+            16,
+            "${65.3} ℃"
         )
     )
 
@@ -112,7 +118,8 @@ fun returnDummyData(): List<PostModel> {
             "남구 옥동",
             150000,
             142,
-            54
+            54,
+            "${31.1} ℃"
         )
     )
 
@@ -127,7 +134,8 @@ fun returnDummyData(): List<PostModel> {
             "동래구 온천제2동",
             180000,
             31,
-            7
+            7,
+            "${27.5} ℃"
         )
     )
 
@@ -140,7 +148,8 @@ fun returnDummyData(): List<PostModel> {
             "연제구 연산제8동",
             30000,
             7,
-            28
+            28,
+            "${67.3} ℃"
         )
     )
 
@@ -153,7 +162,8 @@ fun returnDummyData(): List<PostModel> {
             "중구 동화동",
             190000,
             40,
-            6
+            6,
+            "${42.5} ℃"
         )
     )
     return dummyItems
