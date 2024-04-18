@@ -43,7 +43,6 @@ class PostAdapter(private val items: List<PostModel>) : RecyclerView.Adapter<Pos
 
     inner class Holder(private val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PostModel){
-
             // 화폐 , 처리
             val unitPrice = String.format(
                 Locale.getDefault(),

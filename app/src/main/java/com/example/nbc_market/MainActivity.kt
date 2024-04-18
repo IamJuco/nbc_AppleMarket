@@ -12,10 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.animation.AlphaAnimation
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nbc_market.Util.returnDummyData
 import com.example.nbc_market.databinding.ActivityMainBinding
 
@@ -39,13 +42,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setRecyclerview()
+        itemClickListener()
+        scrollUpClickListener()
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         binding.ivAlarm.setOnClickListener {
             notificationChannel()
         }
+    }
 
+    private fun itemClickListener() {
         // postAdapter의 아이템 클릭 이벤트
         postAdapter.setItemClickListener(object: PostAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
@@ -55,6 +62,33 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+    }
+
+    private fun scrollUpClickListener(){
+        val fadeIn = AlphaAnimation(0f, 1f).apply { duration = 500 }
+        val fadeOut = AlphaAnimation(1f, 0f).apply { duration = 500 }
+        var isTop = true
+
+        binding.rvMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (!binding.rvMain.canScrollVertically(-1) && newState == RecyclerView.SCROLL_STATE_IDLE){
+                    binding.fbUp.startAnimation(fadeOut)
+                    binding.fbUp.visibility = View.GONE
+                    isTop = true
+                } else {
+                    if (isTop) {
+                        binding.fbUp.visibility = View.VISIBLE
+                        binding.fbUp.startAnimation(fadeIn)
+                        isTop = false
+                    }
+                }
+            }
+        })
+
+        binding.fbUp.setOnClickListener {
+            binding.rvMain.smoothScrollToPosition(0)
+        }
     }
 
     private fun setRecyclerview(){

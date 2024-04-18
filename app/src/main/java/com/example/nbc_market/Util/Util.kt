@@ -3,9 +3,6 @@ package com.example.nbc_market.Util
 import android.net.Uri
 import com.example.nbc_market.PostModel
 
-
-
-
 fun returnDummyData(): List<PostModel> {
 
     val dummyItems = mutableListOf<PostModel>()

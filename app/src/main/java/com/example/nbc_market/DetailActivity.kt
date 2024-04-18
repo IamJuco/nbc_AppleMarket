@@ -1,6 +1,5 @@
 package com.example.nbc_market
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
