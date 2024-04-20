@@ -7,129 +7,149 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-    <ImageView
-        android:id="@+id/iv_detailImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_detailImage">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ff7f00"
-            android:src="@drawable/profile" />
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tv_detailUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="유저닉네임"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
-
-    <TextView
-        android:id="@+id/tv_detailLocationm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="동래구 온천제2동"
-        android:textSize="13sp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detailUserName" />
-
-    <ImageView
-        android:id="@+id/iv_mannerIcon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/manner_perfact"
-        android:layout_margin="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="15dp"
-        android:text="39.3 ℃"
-        android:textColor="#3cb371"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/iv_mannerIcon"
-        app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="매너온도"
-        android:textColor="#999999"
-        android:textSize="10sp"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_mannerIcon" />
-
-    <View
-        android:id="@+id/horizontalBar"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp"
-        android:background="#999999"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-
-    <TextView
-        android:id="@+id/tv_detailPostTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="샤넬 탑핸들 가방"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalBar" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
         android:fillViewport="true"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/tv_detailPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detailPostTitle">
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <TextView
-            android:id="@+id/tv_detailPostContents"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="샤넬 트랜디 CC 탑핼"
-            android:textSize="15sp"/>
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_detailImage">
+
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ff7f00"
+                    android:src="@drawable/profile" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_detailUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_detailUserName"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toEndOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
+
+            <TextView
+                android:id="@+id/tv_detailLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_detailLocation"
+                android:textSize="13sp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detailUserName" />
+
+            <ImageView
+                android:id="@+id/iv_mannerIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/manner_perfact"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
+
+            <TextView
+                android:id="@+id/tv_mannersTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/tv_mannersTemperature"
+                android:textColor="#3cb371"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/iv_mannerIcon"
+                app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
+
+            <TextView
+                android:id="@+id/tv_mannersInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_mannersInfo"
+                android:textColor="#999999"
+                android:textSize="11sp"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/horizontalBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_mannerIcon" />
+
+            <View
+                android:id="@+id/horizontalBar"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#999999"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+            <TextView
+                android:id="@+id/tv_detailPostTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/tv_detailPostTitle"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalBar" />
+
+            <TextView
+                android:id="@+id/tv_DetailPostContents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/tv_detailPostContents"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detailPostTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_detailFavorite"
@@ -154,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="180,000원"
+        android:text="@string/tv_detailPrice"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -165,7 +185,7 @@
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:background="@drawable/btn_radius"
-        android:text="채팅하기"
+        android:text="@string/btn_chat"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_margin="10dp"
