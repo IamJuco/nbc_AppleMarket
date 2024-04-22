@@ -28,7 +28,11 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         showDetailActivity()
+        itemClickListener()
 
+    }
+
+    private fun itemClickListener() {
         binding.tvMannersInfo.setOnClickListener {
             showMannersInfoDialog()
         }

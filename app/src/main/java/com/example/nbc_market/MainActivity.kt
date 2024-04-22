@@ -46,9 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
-        binding.ivAlarm.setOnClickListener {
-            notificationChannel()
-        }
+
     }
 
     private fun itemClickListener() {
@@ -61,6 +59,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        binding.ivAlarm.setOnClickListener {
+            notificationChannel()
+        }
     }
 
     private fun scrollUpClickListener(){
