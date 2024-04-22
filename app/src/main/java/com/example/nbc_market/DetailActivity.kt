@@ -67,8 +67,8 @@ class DetailActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.manners_info_title))
 
-        val v1 = layoutInflater.inflate(R.layout.manners_info_dialog, null)
-        builder.setView(v1)
+        val view = layoutInflater.inflate(R.layout.manners_info_dialog, null)
+        builder.setView(view)
 
         builder.setPositiveButton(getString(R.string.manners_info_positive)) { dialog, _ ->
             dialog.dismiss()
