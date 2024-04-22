@@ -46,9 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
-        binding.ivAlarm.setOnClickListener {
-            notificationChannel()
-        }
+
     }
 
     private fun itemClickListener() {
@@ -57,10 +55,14 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View, position: Int) {
                 val item = postAdapter.getItem(position)
                 val intent = Intent(baseContext, DetailActivity::class.java)
-                intent.putExtra("UserData", item)
+                intent.putExtra(Constants.KEY_USER, item)
                 startActivity(intent)
             }
         })
+
+        binding.ivAlarm.setOnClickListener {
+            notificationChannel()
+        }
     }
 
     private fun scrollUpClickListener(){

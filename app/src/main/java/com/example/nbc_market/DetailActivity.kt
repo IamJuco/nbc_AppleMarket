@@ -17,9 +17,9 @@ class DetailActivity : AppCompatActivity() {
 
     private val postModel by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent?.getParcelableExtra("UserData", PostModel::class.java)
+            intent?.getParcelableExtra(Constants.KEY_USER, PostModel::class.java)
         } else {
-            intent?.getParcelableExtra("UserData")
+            intent?.getParcelableExtra(Constants.KEY_USER)
         }
     }
 
@@ -28,7 +28,11 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         showDetailActivity()
+        itemClickListener()
 
+    }
+
+    private fun itemClickListener() {
         binding.tvMannersInfo.setOnClickListener {
             showMannersInfoDialog()
         }
@@ -63,8 +67,8 @@ class DetailActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.manners_info_title))
 
-        val v1 = layoutInflater.inflate(R.layout.manners_info_dialog, null)
-        builder.setView(v1)
+        val view = layoutInflater.inflate(R.layout.manners_info_dialog, null)
+        builder.setView(view)
 
         builder.setPositiveButton(getString(R.string.manners_info_positive)) { dialog, _ ->
             dialog.dismiss()
