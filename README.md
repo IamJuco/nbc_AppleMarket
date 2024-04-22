@@ -30,3 +30,13 @@
 - [x]  플로팅 버튼을 누르면 스크롤을 최상단으로 이동시킵니다.
 - [x]  플로팅 버튼은 나타나고 사라질때 fade 효과가 있습니다.
 - [x]  플로팅 버튼을 클릭하면(pressed) 아이콘 색이 변경됩니다. .
+
+# 피드백 개선
+- [x]  postAdapter에서 viewholder 선언 방식 inner class -> nested class로 변경해주세요.
+->inner class 사용시 직렬화 문제 발생 가능성 있음
+->inner class 내부에 outer class 정보를 보관, 참조를 해제하지 못하면 메모리 누수 발생가능성 있음
+->불필요한 메모리 낭비와 성능 이슈
+-MainActivity에서 onCreate구현 부에 binding.ivAlarm.setOnClickListener 구현부를 itemClickListener()로 분리하세요.
+-detailActivity에도 onCreate구현 부에 클릭리스너 구현부를 메소드로 분리해보세요.
+- [x]  intent로 data를 주고 받을 때 값을 직접 “UserData”로 넣어주는 방식보다 상수로 처리해보세요
+- [x]  DetailActivity에서 val v1 = layoutInflater.inflate(R.layout.manners_info_dialog, null) 의미 있는 변수명으로 지어보세요.
