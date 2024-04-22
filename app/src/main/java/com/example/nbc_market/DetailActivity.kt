@@ -17,9 +17,9 @@ class DetailActivity : AppCompatActivity() {
 
     private val postModel by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent?.getParcelableExtra("UserData", PostModel::class.java)
+            intent?.getParcelableExtra(Constants.KEY_USER, PostModel::class.java)
         } else {
-            intent?.getParcelableExtra("UserData")
+            intent?.getParcelableExtra(Constants.KEY_USER)
         }
     }
 

@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View, position: Int) {
                 val item = postAdapter.getItem(position)
                 val intent = Intent(baseContext, DetailActivity::class.java)
-                intent.putExtra("UserData", item)
+                intent.putExtra(Constants.KEY_USER, item)
                 startActivity(intent)
             }
         })
