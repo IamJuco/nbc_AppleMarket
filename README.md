@@ -32,6 +32,7 @@
 - [x]  플로팅 버튼을 클릭하면(pressed) 아이콘 색이 변경됩니다. .
 
 # 피드백 개선
+## 2024-04-19 피드백
 - [x]  postAdapter에서 viewholder 선언 방식 inner class -> nested class로 변경해주세요.
 ->inner class 사용시 직렬화 문제 발생 가능성 있음
 ->inner class 내부에 outer class 정보를 보관, 참조를 해제하지 못하면 메모리 누수 발생가능성 있음
